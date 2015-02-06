@@ -36,7 +36,7 @@
 \ProvidesClass{icmmcm}[2012/01/31 ICM/MCM Contest Submission Class]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax %% <-- fix if we decide to declare some options!
-\LoadClass[11pt]{article}
+\LoadClass[a4paper,11pt]{article}
 
 %% Get some useful information about errors.
 \setcounter{errorcontextlines}{25}
@@ -48,8 +48,12 @@
 \RequirePackage{xspace}
 \RequirePackage{verbatim}
 \RequirePackage{booktabs}
-\RequirePackage{ifthen}
+\RequirePackage{tabularx}
 
+\RequirePackage{bera}
+
+\RequirePackage{ifthen}
+\RequirePackage{geometry}
 %%% Define a command to take the letter of the question answered.
 \newcommand{\@question}[1]{}
 \newcommand{\question}[1]{\gdef\@question{#1}}
@@ -60,7 +64,7 @@
 \newcommand{\contest}[1]{\gdef\@contest{#1}}
 \global\let\@contest\relax
 
-
+\newcommand{\officeuseline}{\rule{3.1cm}{0.5pt}}
 
 %%% Define a command for the ``team control number'', which is the
 %%% only allowable identifier on the paper.
@@ -69,7 +73,6 @@
 %%% by the contest runners.
 \newcommand{\@team}[1]{}
 \newcommand{\team}[1]{\gdef\@team{#1}}
-
 
 
 %%% Redefine the \maketitle command to include our extra information.
@@ -81,8 +84,8 @@
   \begin{center}%
   \let \footnote \thanks
     {\LARGE \@title \par}%
-    \vskip 1em%
-    {\Large \@contest\ Contest Question \@question}
+%    \vskip 1em%
+%    {\Large \@contest\ Contest Question \@question}
     \vskip 1.5em%
     {\large
       \lineskip .5em%
@@ -122,18 +125,59 @@
 %%% page.
 
 \newenvironment{summary}{%
-  \vspace{2.5in}
-      \null\vfil
-      \@beginparpenalty\@lowpenalty
-  \thispagestyle{empty}
-      \begin{center}%
-        \bfseries Summary
-        \@endparpenalty\@M
-      \end{center}
+  \newgeometry{a4paper, hmargin = 0.88in}
+  \makesheet
+  \centerline{\large\bfseries Summary}
 }{\newpage%
-\setcounter{page}{1}}%
+\setcounter{page}{1}\restoregeometry}%
 
-
+\def\makesheet{%
+  \null%
+  %\vskip 1em%
+  \begingroup\renewcommand{\arraystretch}{1.2}\fontfamily{fvs}\fontseries{m}\selectfont%
+  \thispagestyle{empty}%
+  \noindent\begin{tabularx}{0.24\textwidth}{l}%
+  %\multicolumn{2}{l}{For office use only}\\
+    For office use only\\
+    T1~\officeuseline\\
+    T2~\officeuseline\\
+    T3~\officeuseline\\
+    T4~\officeuseline\\
+  \end{tabularx}\hspace{\fill}
+  \begin{minipage}{0.33\textwidth}
+    \centering
+    Team Control Number\\[13pt]
+    {\fontsize{40pt}{30pt}\selectfont
+     \textbf{\@team}}%
+      \normalsize\\[20pt]
+    Problem Chosen\\[8pt]
+    {\fontsize{20pt}{\baselineskip}\selectfont
+     \textbf{\@question}}\normalsize\\
+  \end{minipage}\hspace{\fill}
+  \begin{tabularx}{0.24\textwidth}{l}%
+    %\multicolumn{2}{l}{For office use only}\\
+    For office use only\\
+    F1~\officeuseline\\
+    F2~\officeuseline\\
+    F3~\officeuseline\\
+    F4~\officeuseline\\
+  \end{tabularx}\par
+    %\noindent\vskip1pt%\hspace{\fill}%
+\vskip 8pt%
+\noindent%
+\rule{\textwidth}{0.5pt}%\vskip 2pt%
+\begin{center}
+  \textbf{\the\year\ Mathematical Contest in Modeling (MCM) Summary Sheet}\\
+(Attach a copy of this page to your solution paper.)
+\end{center}
+\par%
+\begin{center}
+Type a summary of your results on this page. Do not include\\
+the name of your school, advisor, or team members on this page.
+\end{center}
+\vskip 1.5em%
+%\noindent\usebox\@abstract%
+\endgroup}
 
 \AtEndDocument{%
 \typeout{}
