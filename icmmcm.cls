@@ -49,11 +49,10 @@
 \RequirePackage{verbatim}
 \RequirePackage{booktabs}
 \RequirePackage{tabularx}
-
-\RequirePackage{bera}
-
+\RequirePackage{bera}%for \fontfamily{fvs}
 \RequirePackage{ifthen}
 \RequirePackage{geometry}
+
 %%% Define a command to take the letter of the question answered.
 \newcommand{\@question}[1]{}
 \newcommand{\question}[1]{\gdef\@question{#1}}
