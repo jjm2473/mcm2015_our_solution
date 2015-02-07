@@ -33,8 +33,8 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{icmmcm}[2012/01/31 ICM/MCM Contest Submission Class]
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProvidesClass{icmmcm}[2015/02/07 ICM/MCM Contest Submission
+Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax %% <-- fix if we decide to declare some options!
 \LoadClass[a4paper,11pt]{article}
 
@@ -128,18 +128,20 @@
 %%% page.
 
 \newenvironment{summary}{%
+  \pagenumbering{Alph}
   \newgeometry{a4paper, hmargin = 0.88in}
   \makesheet
   \centerline{\large\bfseries Summary}
 }{\newpage%
-\setcounter{page}{1}\restoregeometry}%
+\setcounter{page}{1}\restoregeometry%
+\pagenumbering{arabic}}%
 
 \def\makesheet{%
   \null%
   %\vskip 1em%
   \begingroup\renewcommand{\arraystretch}{1.2}\fontfamily{fvs}\fontseries{m}\selectfont%
   \thispagestyle{empty}%
-  \noindent\begin{tabularx}{0.24\textwidth}{l}%
+  \noindent\begin{tabularx}{116pt}{l}%
   %\multicolumn{2}{l}{For office use only}\\
     For office use only\\
     T1~\officeuseline\\
@@ -147,7 +149,7 @@
     T3~\officeuseline\\
     T4~\officeuseline\\
   \end{tabularx}\hspace{\fill}
-  \begin{minipage}{0.33\textwidth}
+  \begin{minipage}{0.4\textwidth}
     \centering
     Team Control Number\\[13pt]
     {\fontsize{40pt}{30pt}\selectfont
@@ -157,7 +159,7 @@
     {\fontsize{20pt}{\baselineskip}\selectfont
      \textbf{\@question}}\normalsize\\
   \end{minipage}\hspace{\fill}
-  \begin{tabularx}{0.24\textwidth}{l}%
+  \begin{tabularx}{116pt}{l}%
     %\multicolumn{2}{l}{For office use only}\\
     For office use only\\
     F1~\officeuseline\\
