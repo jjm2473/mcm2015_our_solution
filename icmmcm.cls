@@ -53,6 +53,10 @@
 \RequirePackage{ifthen}
 \RequirePackage{geometry}
 
+%%% Create Index Tree and Links
+\RequirePackage{hyperref}
+\hypersetup{hidelinks}
+
 %%% Define a command to take the letter of the question answered.
 \newcommand{\@question}[1]{}
 \newcommand{\question}[1]{\gdef\@question{#1}}
