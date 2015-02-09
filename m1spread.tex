@@ -48,13 +48,14 @@ the solution of equation (\ref{equ:2}) is:
 i(t)=i_0e^{k_0t}
 \label{equ:3}
 \end{equation}
-the figure of equation (\ref{equ:3}) is figure~\ref{fig:1}:\par
+the figure of equation (\ref{equ:3}) is Figure~\ref{fig:1}:\par
 \begin{figure}
+\centering
 \includegraphics[width=4in]{imgs/i(t).pdf}
-\caption{equation (\ref{equ:3})}
+\caption{Spread of Ebola virus.}
 \label{fig:1}
 \end{figure}
-the figure~\ref{fig:1} shows us that: 
+Figure~\ref{fig:1} shows us that: 
 The Ebola virus spread increases exponentially.
 The results are in good agreement with 
 the Ebola virus spread in beginning, in general, Ebola
@@ -107,10 +108,10 @@ l=\frac{\frac{{\der}r(t)}{{\der}t}}{i(t)}
 \frac{{\der}s}{{\der}t}=-\frac{{\der}i(t)}{{\der}t}-\frac{{\der}r(t)}{{\der}t}
 \end{array}\right.
 \label{equ:6}
-\end{equation}
-
-$ i(0)=i_0,s(0)=s_0,r(0)=r_0=N-i_0-s_0 $
-
+\end{equation}%
+%
+where $ i(0)=i_0,s(0)=s_0,r(0)=r_0=N-i_0-s_0 $.
+%
 \begin{equation}
 \left\{
 \begin{array}{l}
@@ -122,18 +123,21 @@ i(0)=i_0,s(0)=s_0,r(0)=r_0=N-i_0-s_0
 \label{equ:7}
 \end{equation}
 \begin{figure}
+\centering
 \includegraphics[width=4in]{imgs/sars3_2.pdf}
 \caption{Phase trajectoriesthe for equation (\ref{equ:7})}
 \label{fig:2}
 \end{figure}
 Equation (\ref{equ:7}) is difficult to obtain an accurate
-solution can be the first to make numerical calculations.\par
-Numerical Methods: For convenience of calculation, visual
- $ s(t) $ and $ i(t) $ is the proportion of the total number,
- and therefore, in equation (\ref{equ:7}), set $k=1$,
-  $l=0.5$, $i(0)=0.01$, $s(0)=0.80$, using MATLAB software
- programming as appendix 1 and 2, product Figure~\ref{fig:2}
-Elimination $ t $:
+solution, can be the first to make numerical calculations.\par
+  Numerical calculation: For convenience of calculation, visual
+$ s(t) $ and $ i(t) $ is the proportion of the total number,
+and therefore, in equation (\ref{equ:7}), set $k=1$,
+$l=0.5$, $i(0)=0.01$, $s(0)=0.80$, using MATLAB software
+programming as appendix 1 and 2, product Figure~\ref{fig:2} for
+$i(s)$.On the phase plane s-i, the domain of the phase
+trajectories is $ D=\{(s,i),s>0,i\geq 0,s+i\leq1\} $.\\
+Elimination $ t $, then:
 \begin{equation}
 \frac{{\der}i}{{\der}s}=-1+\frac{1}{ks}
 \label{equ:8}
@@ -175,12 +179,6 @@ From this figure, we can see that:
 \end{enumerate}
 The following study relationship between Ebola virus spread and
 time of begin taking isolation.\par
-The figure below is based on Figure~\ref{fig:2} with changeing
-the time when start taken to isolate, when $l$ will increase.
-Figure~\ref{fig:4}(B) is the effect of different time of begin taking 
-isolation for the number of patient, $1,2,\cdots,n$ hour
-corresponding image by the bottom-up.(MATLAB code for this part
-is in appendix 1, 3 and 4)\par
 \begin{figure}\centering
 \includegraphics[width=4in]{imgs/iso_i_t.pdf}
 \nline%
@@ -193,6 +191,12 @@ is in appendix 1, 3 and 4)\par
 isolation for spread.}
 \label{fig:4}
 \end{figure}
+The figure below is based on Figure~\ref{fig:2} with changeing
+the time when start taken to isolate, when $l$ will increase.
+Figure~\ref{fig:4}(B) is the effect of different time of begin taking 
+isolation for the number of patient, $1,2,\cdots,n$ hour
+corresponding image by the bottom-up.(MATLAB code for this part
+is in appendix 1, 3 and 4)\par
 As can be seen from Figure~\ref{fig:4}(A), with the start of
 the time taken to isolation increasing, from the dense
 continuous curve becomes too sparse, that is, at the time of
