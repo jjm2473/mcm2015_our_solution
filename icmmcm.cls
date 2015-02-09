@@ -135,9 +135,12 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
   \pagenumbering{Alph}
   \newgeometry{hmargin = 0.88in, vmargin = 1in}
   \makesheet
-  \begin{quotation}
-  \centerline{\large\bfseries Abstract}\nline%
-}{\end{quotation}\newpage%
+  \centering
+  \begin{minipage}{5in}\setlength{\parindent}{2em}\nline%
+  %\begin{center}{\large\bfseries Abstract}\end{center}
+  \centerline{\large\bfseries Abstract}%\nline%
+  \noindent%
+}{\end{minipage}\newpage%
 \setcounter{page}{1}\restoregeometry%
 \pagenumbering{arabic}}%
 
