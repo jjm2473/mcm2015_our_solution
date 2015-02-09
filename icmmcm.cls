@@ -135,10 +135,9 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
   \pagenumbering{Alph}
   \newgeometry{hmargin = 0.88in, vmargin = 1in}
   \makesheet
-  \begin{center}
-  	{\large\bfseries Abstract}
-  \end{center}
-}{\newpage%
+  \begin{quotation}
+  \centerline{\large\bfseries Abstract}\nline%
+}{\end{quotation}\newpage%
 \setcounter{page}{1}\restoregeometry%
 \pagenumbering{arabic}}%
 
