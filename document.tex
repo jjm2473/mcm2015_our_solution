@@ -6,32 +6,43 @@
 
 \newcommand{\der}{\mathrm{d}}
 
-\title{A Research of Something}
+\title{The Mathematical Model of the Optimized Use of Ebola Virus Drug}
 \team{38403}
 \question{A}
-\date{February 8, 2015}
+%\date{February 8, 2015}
 
 \begin{document}
 \begin{summary}
-Summary
+As we all know, a new medication could stop Ebola and cure
+patients whose disease is not advanced. So how can we make full
+use the value of new medication? We will build two models:
+one mathematical model about Ebola virus infection trends,
+isolate time and the amount of the drug, another mathematical
+model to explore the optimal allocation of transportation 
+systems and drug production rate.
+\par Model one: the mathematical model about Ebola virus
+infection trends and isolate time and the amount of the drug.
+According to the characteristics of Ebola virus transmission,
+we model the spread of the Ebola virus Ordinary Differential
+Equation(ODE) and the draw the relevant graphics. With the help
+of phase trajectories nature, we can not only discuss the
+nature of ordinary differential equations model with the spread
+of the Ebola virus, but also describe the entire process of
+Ebola virus transmission and calculates the best time to 
+Ebola virus isolation initially.
+To analyze the usefulness of the model, we use nonlinear
+regression function to calculate the data  to verify the
+reliability of the model.
+\par Model two: explore optimal allocation of transport systems 
+and drug production rate. According to the practical
+application of the Ebola virus drug, we establish some special
+mathematical models,which were analyzed using linear
+programming, so that drug transport is simple and fast,
+saving the transportation time.
 \end{summary}
-
-\section{Model}
-\subsection{The Spread of the Ebola Virus}
-%\input{m1spread}
-\subsection{Required Drug}
-%\input{m1demand}
-\subsection{Transportation System}
-%\input{m2trans}
-\subsection{Produnction Speed}
-\input{m4output}
-
-\section{Appendix}
-\input{appendix}
 
 \maketitle
 \thispagestyle{fancy}
-\tableofcontents
 
 %%% Uncomment the following lines if you have figures or tables in
 %%% your report:
@@ -39,48 +50,254 @@ Summary
 %% \listoftables
 
 \section{Introduction}
-MCM is very difficult!\\
-MCM is very difficult!\\
-MCM is very difficult!\\
-MCM is very difficult!\\
-MCM is very difficult!
-\begin{table}
-\centering
-\begin{tabular}{|l|l|}
-\hline
-table & test\\
-\hline
-Hello & world\\
-\hline
-\end{tabular}
-\caption{Table test}
-\label{tab:1}
-\end{table}
-\newpage
-\section{Modeling}
-MCM is very difficult!
+\subsection{The basic situation of Ebola virus}
+Ebola virus can cause humans and primates producing blood, with
+a high mortality rate of approximately 50\% to 90\% \cite{bib1},
+effective drugs will be developed when the task. World Medical
+Association declared that the development of drugs can cure
+patients whose illness is not serious, so how to make full
+use of the drug is the important factor when we establish
+model.
+\subsection{The Direction of Research}
+The main direction of our research is to use a variety of
+mathematical methods and means to achieve the optimal use 
+of the drug and the full value of drug, thereby reducing the
+Ebola virus infection rate and mortality.
+\section{Problem Analysis}
+\subsection{The Restatement of the Problem}
+Ebola virus appeared resulted in the death of many patients,
+the Medical Association developed a drug to cure patients yet
+to come late, so that more patients get second chance to see
+the hope of life.
+\par Our  model is  consistent with the value of the drug.
+\par Factors that play a crucial role in the influence of drugs,
+including the speed of the disease, isolation time, the amount
+of drug required drug, delivery systems and drug production
+speed. Thus our tasks are gradually clear.
+The task is as follows:
+\begin{itemize}
+  \item The establishment of the model one is to be more
+  intuitive to see the trends in the spread of Ebola virus.The
+  model not only provides important information for Ebola
+  virus' prevention and treatment but also a similar model for
+  the spread of other virus.
+  \item Using the conclusion of model one, we can calculate the
+  isolation time roughly and then calculated the drug dosage
+  further.
+  \item Finding the number of Ebola virus infection in past
+  data, and then we use nonlinear regression function
+  ``nlinfit'' to validate the model one.
+  \item The establishment of the model two is to explore the
+  best transportation system for drug distribution, so that we
+  can save drug delivery time and strive to save more patients.
+  \item Using the model two elaborating the drug delivery rate
+  and drug production speed is to calculate vaccines and drugs
+  production speed.
+  \item Write a non-technical letter for the World Medical 
+  Association's announcement.
+\end{itemize}
+\subsection{The Layout of Problem Solving}
+\begin{itemize}
+  \item First of all, we need to establish the ordinary
+  differential equation models of the spread of Ebola
+  virus(model in Section~\ref{sec:m1}), draw images, describe
+  propagation of Ebola virus and discuss the characteristics
+  concerned the solution. At the same time, using of the model
+  we can calculate the best time to isolate rough.
+  \item Secondly, use the results of model one to identify
+  positive relationship between dosage and the number of
+  infections including time parameter variables, and then we
+  can calculate the total dose.
+  \item Thirdly, according to the Ebola virus infection data provided
+  by the World Health Organization, we draw a scatter plot and
+  use nonlinear regression function to analyze the reliability
+  of the model.
+  \item Fourthly, using linear programming model in the use of
+  transport,we establish transport system of Ebola drug.
+  \item Fifthly, using the model two about the optimization result of
+  drug transport, we can identify the nonlinear relationship
+  between the production rate and drug dispensing transport
+  optimal results and calculate the speed of vaccines and drugs
+  production.
+  \item Finally, according to the results of our research,
+  write a non-professional letter for the World Medical
+  Association's announcement.
+\end{itemize}
 
-\subsection{Subtitle}
-Plain text.H
+\section{Model Design}
+\subsection{The Spread of the Ebola Virus}
+\label{sec:m1}
+\input{m1spread}
+\subsection{Required Drug}
+\input{m1demand}
+\subsection{Transportation System}
+\input{m2trans}
+\subsection{Produnction Speed}
+\input{m4output}
+\section{Testing and Analysis}
+\input{mtest}
 
-\subsection{Another subtitle}
-More plain text.
+\section{Model Evaluation}
+\subsection{Advantage}
+\begin{itemize}
+  \item This model gives a result of a general, not only for
+  Ebola virus infection case analysis, but also for other
+  infections virus analysis.
+  \item Model use a method of combination of numbers and shapes
+  to present Ebola virus propagation visually objectively.
+  \item Model了not only takes into account more than two origin,
+  more requirements to the case  but also combines drug
+  production speed with drug delivery speed to get the optimal
+  allocation scheme.
+  \item In the modeling process, we fully consider the patient
+  cured or deaths are no longer contagious, greatly improving
+  the accuracy of the model and the ability to improve the
+  application of the model.
+  \item The principle of the model is straightforward. It
+  simplify algorithm. Model has good practicability.
+\end{itemize}
+\subsection{Weaknesses}
+\begin{itemize}
+  \item The study population N is the total number of dynamic
+  change, there is birth, death, flow and so on. This makes the
+  model and the actual situation have a tolerance.
+  \item Ebola virus in the human body have latency and Ebola
+  virus carriers is not contagious, and this is where the model
+  is not perfect.
+  \item  Drug has half-life in human body. Patients must adhere
+  to medication for some time to recover, so the dose
+  calculations and the actual have a tolerance.
+  \item model does not take into account the differences of
+  each drug production's technologies and the speed of
+  manufacturing of the drug. In addition, Transport can be
+  selected arbitrarily and the difficulty of journeys of local
+  productions of drug to where needed drug are different. These
+  make the best scheme of drug distribution transportation and
+  the actual have a tolerance.
+  \item Under actual conditions, There are times when the drug
+  production and transit of products and patients taking the
+  drug during a certain waste so there is a tolerance of drug
+  production speed with the actual situation.
+\end{itemize}
+\subsection{Improvement and Value of the Model}
+In the process of model predictions, program one in model one
+ignores many factors, does not comply with the later development
+of Ebola virus infection. Based on program one, we consider more
+factors and then establish program two. Development of Ebola
+virus infection and the development of other infections were
+similar. However we know that both the use of drug and isolation
+measures for Ebola virus infection trend have important
+effect. Therefore, our model takes into account the factors more
+comprehensively. Combining with reality, we develop model which
+is more consistent with the facts. In other words, under certain
+circumstances our model of Ebola virus infections prediction is
+accurate, but due to various factors such as variation of the
+virus, it may not be able to accurately predict the long-term
+trend of Ebola virus infection. To develop in line with the
+actual situation of the Ebola virus-term forecast, we must
+improve the above model further.
+\par Model two are simplified in many factors, so our model
+should consider all factors affecting the transport logistics
+and distribution, but the reality is very complex,multifaceted
+consideration is needed to improve our model of development
+direction.
+\par Through new Ebola cases elaborated each time people can
+understand the strength of the infectious diseases, but they can
+not see the trend of infectious diseases visually. The model we
+established can solve this problem, making people realize the
+Ebola virus infection trends more intuitively and seize the
+best opportunity to isolate. When it comes to the transportation
+systems of drug distribution, the model is able to find  the
+shortest time of transportation and production. Thus saving more
+time, providing the drug to the places needed drugs in time,we
+can save more people. Our model can be applied not only to the
+establishment of the Ebola virus, but also be applied to a virus
+similar to Ebola.
 
-\section{Conclusion}
-Balabala\ldots
+\section{A Letter for the World Medical Association}
+\centerline{A letter for the World Medical Association}
+Dear the World Medical Association:
+\par Thanks to the world medical association has manufactured a
+new medication for the treatment of Ebola virus to control the
+spread of Ebola, more and more patients can be treated. In
+order to make better use of the medication, we also need to
+optimize the amount of drugs, drug distribution transportation
+systems, drug production speed.
+\par According to our research, in terms of the development
+trends of  Ebola virus infection, if a disease outbreak early
+without any human control, Ebola cases will continue to
+increase dramatically. However, after the artificially
+controlled, e.g., therapeutic agents, when used for drug
+optimization, Ebola cases increased trend has control, even
+evolve into decline. We also found that if the number of
+infected people exceeds to a certain value, infectious diseases
+will spread. when high population density, density infected
+people lack the necessary precautions to isolate patients to
+take bad treatment, contact rate large population, excluding
+rate is relatively high, the Ebola virus will spread potential
+was fast. So when people are in high population density
+environment, and the lack of the necessary precautions, contact
+rate and large population, excluding rate is relatively high,
+the Ebola virus's spread potential was fast. On the contrary,
+when people are in an environment with low population density
+and the governments have better preventive measures, it can
+effectively control the spread of the Ebola virus. In terms of
+drug dosage, we want to ensure that not only each patient whose
+disease is not advanced has enough drugs to treat, but also
+strive to drug waste as little as possible. We use the most
+severe cases of illness required does as the base, the base
+multiplied by the number of patients is the best dose.
+\par We also studied the best drug distribution transport
+systems. This program is not only to make sure each drug needs
+to have sufficient amount of drugs, but also in the shortest
+time available. Therefore, when required in each drug dose to
+the needs and capacity of each dose of origin are a constant
+premise, we have come to a certain percentage of the
+production of various origin drugs and drug transport to
+various places of the time required to reach the minimum, this
+allocation transportation system drug distribution is the best
+transportation system. This transport system can save more time
+to control the spread of the disease and save more lives. In
+terms of drug production speed, transported to where the
+production of each dose of medicament required by dividing the
+time required for the production of the amount of drug is the
+best speed of manufacturing of the drug. Mentioned above is the
+result of our study. We hope that the World Medical Association
+will seriously consider and adopt the results of our study, and
+show an announcement on better optimize the use of drugs in
+order to do a better job in the fight against Ebola!
+\par Our team wishes Ebola patients can recover rapidly and
+people all around the world are happy and healthy!\\\nline%
+\rightline{Team \#38403}
+\rightline{February 9, 2015}
 
 \bibliographystyle{plain}
-\begin{thebibliography}{2}
-\bibitem{bib1}Chidansh Amitkumar Bhatt, Mohan S. Kankanhalli,
-Multimedia data mining: state of the art and challenges,
-\url{http://link.springer.com/article/10.1007/s11042-010-0645-5}
+\begin{thebibliography}{10}
+\bibitem{bib1}Ebola virus, Baidu Encyclopedia,
+  \url{http://baike.baidu.com/subview/188032/5072671.htm}
 
-\bibitem{bib2}F. Giannotti, D. Pedreschi, A. Pentland, P.
-Lukowicz, D. Kossmann, J.
-Crowley, D. Helbing,
-A planetary nervous system for social mining and collective awareness,
-\url{http://link.springer.com/article/10.1140/epjst/e2012-01688-9}
+\bibitem{bib2}Wei Li, On Mathematical Model of the Spread of
+  SARS Virus, Journal of Bijie Teachers College (volume 22,
+  issue 2, June 2004)
 
+\bibitem{bib3}Jiang Hua,Pan Haixia,\ldots, Simulating the Ebola
+virus disease transmission and outbreak in China by using computational
+epidemiological model, Chinese Journal of emergency
+medicine(volume 23, issue 9, September 2014)
+
+\bibitem{bib4}Xueqin Wu,Linear Programming in logistics and
+transportand application of mathematical models, Journal of
+Jiangxi Vocational and Technical College of Electricity(volume
+20, issue 1, March 2007)
+
+\bibitem{bib5}The latest data of deaths from Ebola,
+\url{http://snap.windin.com/ns/findsnap.php?id=232970537}
+
+\bibitem{bib6}Shaohui Zhang, The mathematical model, Science
+Press(August 2010)
 \end{thebibliography}
+
+\section*{Appendix}
+\input{appendix}
 
 \end{document}

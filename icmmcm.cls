@@ -135,7 +135,9 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
   \pagenumbering{Alph}
   \newgeometry{hmargin = 0.88in, vmargin = 1in}
   \makesheet
-  \centerline{\large\bfseries Summary}
+  \begin{center}
+  	{\large\bfseries Abstract}
+  \end{center}
 }{\newpage%
 \setcounter{page}{1}\restoregeometry%
 \pagenumbering{arabic}}%
@@ -179,11 +181,11 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
   \textbf{\the\year\ Mathematical Contest in Modeling (MCM) Summary Sheet}\\
 (Attach a copy of this page to your solution paper.)
 \end{center}
-\par%
-\begin{center}
-Type a summary of your results on this page. Do not include\\
-the name of your school, advisor, or team members on this page.
-\end{center}
+% \par%
+% \begin{center}
+% Type a summary of your results on this page. Do not include\\
+% the name of your school, advisor, or team members on this page.
+% \end{center}
 \vskip 1.5em%
 %\noindent\usebox\@abstract%
 \endgroup}
