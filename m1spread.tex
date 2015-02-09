@@ -1,0 +1,212 @@
+For convenience, we defined some symbols:
+\begin{center}
+\begin{tabular}{|r|p{7cm}|}
+\hline
+$ i(t) $ & total cases on $t$-th day.\\
+\hline
+$ i(0)=i_0 $ & total cases on beginning.\\
+\hline
+$ N $ & population in this area.\\
+\hline
+$ k $ & infect factor\\
+\hline
+$ r(t) $ & number of people exited from the epidemic process on
+$t$-th day.\\
+\hline
+%$ p_0 $ & \\
+%\hline
+\end{tabular}
+\end{center}%
+\textbf{\large Modeling:}\\
+\textbf{Case 1:}\\
+Assumptions:
+\begin{enumerate}
+  \item There is no body recover or die in the present period.
+  \item Population $ N $ remain unchanged, it means
+  that we don't care population death,birth and flow.
+  \item Take $ k_0 $ as the number of people infected by
+a patient in one day.
+%  \item The ebola virus no variation in the present period.
+\end{enumerate}
+The increasement of cases from $ t $ to $ t+\Delta t$ is:
+\begin{equation}
+i(t+\Delta{t})-i(t)=k_0i(t)\Delta{t}
+\label{equ:1}
+\end{equation}
+we can get a ordinary differential equations model for 
+equation (\ref{equ:1}):
+\begin{equation}
+\left\{
+\begin{array}{l}
+\frac{{\der}i(t)}{{\der}t}=k_0i(t)\\
+i(0)=i_0
+\end{array}\right.
+\label{equ:2}
+\end{equation}
+the solution of equation (\ref{equ:2}) is:
+\begin{equation}
+i(t)=i_0e^{k_0t}
+\label{equ:3}
+\end{equation}
+the figure of equation (\ref{equ:3}) is figure~\ref{fig:1}:\par
+\begin{figure}
+\includegraphics[width=4in]{imgs/i(t).pdf}
+\caption{equation (\ref{equ:3})}
+\label{fig:1}
+\end{figure}
+the figure~\ref{fig:1} shows us that: 
+The Ebola virus spread increases exponentially.
+The results are in good agreement with 
+the Ebola virus spread in beginning, in general, Ebola
+spread speedy in beginning, the infected person growth in the
+exponential function, when $t$ tends to infinity, then $i(t)$
+tends to infinity. But the actual situation of the Ebola virus
+late is not fit, because in the patients's effective
+contact crowd, have healthy people and patients, while only
+health personnel can be infected. And part of patients will die
+in this period.\par
+Improve this model, then we have case 2.\\
+\textbf{Case 2:}\\
+Assumptions:
+\begin{enumerate}
+  \item Assuming infected and cured with long-term immunity,
+   does not consider the case of long-term repeated infections,
+   healthy immediately after infection can become infected
+   persons. In this case, the people of the entire region is
+   divided into three categories: The first category is
+   contagium which able to infect others, indicating
+   the number of such moment $ t $ with $ i(t) $; second
+   category is susceptible which vulnerable to becoming infected, 
+   with $ s(t) $ represents the number of such moment $ t $;
+   the third category is a person other than the two
+   categories above, including death after infection,
+   get a long-term immunity after illness, who are
+   no longer infected, represents the number of such
+   moments $ t $ with $ r(t) $.
+  \item The region's total population $N$ remain unchanged
+   during the discussion, that is not considered births, deaths,
+   flow and so on.
+  \item The speed of change from first class to second class is
+   proportional to the number of first class.
+\end{enumerate}
+\begin{equation}
+k=\frac{k_0}{s(t)}
+\label{equ:4}
+\end{equation}
+
+\begin{equation}
+l=\frac{\frac{{\der}r(t)}{{\der}t}}{i(t)}
+\label{equ:5}
+\end{equation}
+
+\begin{equation}
+\left\{
+\begin{array}{l}
+\frac{{\der}r(t)}{{\der}t}=li(t)\\
+\frac{{\der}i(t)}{{\der}t}=ks(t)i(t)-\frac{{\der}r(t)}{{\der}t}\\
+\frac{{\der}s}{{\der}t}=-\frac{{\der}i(t)}{{\der}t}-\frac{{\der}r(t)}{{\der}t}
+\end{array}\right.
+\label{equ:6}
+\end{equation}
+
+$ i(0)=i_0,s(0)=s_0,r(0)=r_0=N-i_0-s_0 $
+
+\begin{equation}
+\left\{
+\begin{array}{l}
+\frac{{\der}i(t)}{{\der}t}=ks(t)i(t)-li(t)\\
+\frac{{\der}s(t)}{{\der}t}=-ks(t)i(t)\\
+\frac{{\der}r(t)}{{\der}t}=li(t)\\
+i(0)=i_0,s(0)=s_0,r(0)=r_0=N-i_0-s_0
+\end{array}\right.
+\label{equ:7}
+\end{equation}
+\begin{figure}
+\includegraphics[width=4in]{imgs/sars3_2.pdf}
+\caption{Phase trajectoriesthe for equation (\ref{equ:7})}
+\label{fig:2}
+\end{figure}
+Equation (\ref{equ:7}) is difficult to obtain an accurate
+solution can be the first to make numerical calculations.\par
+Numerical Methods: For convenience of calculation, visual
+ $ s(t) $ and $ i(t) $ is the proportion of the total number,
+ and therefore, in equation (\ref{equ:7}), set $k=1$,
+  $l=0.5$, $i(0)=0.01$, $s(0)=0.80$, using MATLAB software
+ programming as appendix 1 and 2, product Figure~\ref{fig:2}
+Elimination $ t $:
+\begin{equation}
+\frac{{\der}i}{{\der}s}=-1+\frac{1}{ks}
+\label{equ:8}
+\end{equation}
+Set $\rho=1/k$, said $\rho$ is a characteristic (on the
+same area and the same infectious,$\rho$ is a constant).
+\begin{equation}
+\frac{{\der}i}{{\der}s}=\frac{\rho}{s}-1
+\label{equ:9}
+\end{equation}
+
+\begin{equation}
+i(s)=\rho lN\frac{s}{s_0}-s+s_0+i_0
+\label{equ:10}
+\end{equation}
+
+Draw its figure:\par
+\begin{center}
+\includegraphics[width=4in]{imgs/i(s)_i_s.pdf}
+\end{center}
+
+From this figure, we can see that:
+\begin{enumerate}
+  \item regardless of where the phase trajectoriesthe start on,
+   it will eventually intersect with the $s$ axis,
+   that is the patient will eventually disappear;
+  \item the final uninfected healthy proportion is
+   $s_m$(when $t\rightarrow\infty$);
+  \item if $s_0>\rho$, the $i(t)$ first increase, while when 
+   $s=\rho$, $i(t)$ reaches a maximum:
+   $$
+	i_m=s_0+i_0-\rho(1+lN\frac{s_0}{\rho})
+   \label{equ:11}
+   $$
+   Then, $i(t)$ decreases and tends to zero, $s(t)$ is
+   monotonically reduced to $s_m$.
+  \item If $s_0<\rho$ then $i(t)$ decreases monotonically to
+   0, $s(t)$ decreases monotonically to $s_m$.
+\end{enumerate}
+The following study relationship between Ebola virus spread and
+time of begin taking isolation.\par
+The figure below is based on Figure~\ref{fig:2} with changeing
+the time when start taken to isolate, when $l$ will increase.
+Figure~\ref{fig:4}(B) is the effect of different time of begin taking 
+isolation for the number of patient, $1,2,\cdots,n$ hour
+corresponding image by the bottom-up.(MATLAB code for this part
+is in appendix 1, 3 and 4)\par
+\begin{figure}\centering
+\includegraphics[width=4in]{imgs/iso_i_t.pdf}
+\nline%
+(A)
+\\\nline%
+\includegraphics[width=4in]{imgs/iso_i_s.pdf}
+\nline%
+(B)
+\caption{The effect of different time of begin taking 
+isolation for spread.}
+\label{fig:4}
+\end{figure}
+As can be seen from Figure~\ref{fig:4}(A), with the start of
+the time taken to isolation increasing, from the dense
+continuous curve becomes too sparse, that is, at the time of
+virus infection, in a certain period of time, little change in
+the number of infected, but in the longer time to take
+isolation, the number of infections is growing rapidly.
+As can be seen from Figure~\ref{fig:4}(B), when began to take
+isolated relatively in short time , the maximum number of
+infections is relatively small, but with a long time, the sharp
+increase in the number of infections. So once found infected
+should be isolated as soon as possible, in 4h hours of isolation
+is ideal, relatively small number of infections infected by per
+patient, but if it start take isolation than 11h, then the
+consequences will not optimistic, each patient infect
+a lot of people.
+
+

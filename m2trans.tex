@@ -1,0 +1,84 @@
+Assumptions:
+\begin{enumerate}
+  \item Because the number of patients increase with time in the short
+term, to make patients whose illness is not serious can be
+cured, the speed of the drugs production $ v(t) $ needs
+increasing with time.
+  \item Drug delivery using the same kind of transportation and
+transportation speed is $ v_0 $.
+  \item There are $ m $ production places $ A_1,A_2,\cdots,A_m $
+for the drug,the producting speed for the drug of $ A_i $ is
+$ a_i $,$ i=1,2,\cdots,m $.There are $ n $ places $
+B_1,B_2,\cdots,B_n $ need the drug,the demand of $ B_i $ is
+$ b_i $,$ i=1,2,\cdots,n $.
+  \item $ \sum_{i=1}^{m}a_i=\sum_{j=1}^{n} $.For all
+$ i\in\{1,2,\cdots,m\} $ and $ j\in\{1,2,\cdots,n\} $, have
+$ a_i,b_j>0 $.
+$ x_{ij} $ is the quantity of drug transported from $ A_i $ to
+$ B_j $,and $ s_{ij} $ is the transportation path length from
+$ A_i $ to $ B_j $.
+\end{enumerate}\par
+The problem is how to determine the optimal transportation
+scheme:
+Ensure supply, make the shortest transportation time.\\
+The mathematical model for the problem is:\\
+Drug production time $ t=\frac{x_{ij}}{v(t)} $, drug
+transportation time $ t'=\frac{s_{ij}}{v_0} $, let
+$ c_{ij}=\frac{1}{v(t)} $, then:
+\begin{equation}
+min t=\sum_{i=1}^{m}\sum_{j=1}^{n}(t+t')=
+\sum_{i=1}^{m}\sum_{j=1}^{n}c_{ij}x_{ij} + 
+\sum_{i=1}^{m}\sum_{j=1}^{n}t'
+\label{equ:31}
+\end{equation}
+$$
+s.t. \left\{
+\begin{array}{l}
+  \sum_{j=1}^{n}x_{ij}=a_i,i=1,2,\cdots,m \\
+  \sum_{i=1}^{m}x_{ij}=b_j,j=1,2,\cdots,n \\
+  x_{ij}\geq 0,i=1,2,\cdots,m, j=1,2,\cdots,n
+\end{array}\right.
+$$
+where $ \sum_{i=1}^{m}\sum_{j=1}^{n}t' $ is certain, 
+we just calculate the minimum of 
+$ \sum_{i=1}^{m}\sum_{j=1}^{n}c_{ij}x_{ij} $.\\
+Let:
+$$
+\begin{array}{ll}
+x & = ~\begin{pmatrix}
+	  x_{1,1} & x_{1,2} & \cdots & x_{1,n} \\
+	  x_{2,1} & x_{2,2} & \cdots & x_{2,n} \\
+	  \vdots  & \vdots  & \ddots & \vdots  \\
+	  x_{m,1} & x_{m,2} & \cdots & x_{m,n}
+	 \end{pmatrix}\\\\
+C & = ~\begin{pmatrix}
+	  c_{1,1} & c_{1,2} & \cdots & c_{1,n} \\
+	  c_{2,1} & c_{2,2} & \cdots & c_{2,n} \\
+	  \vdots  & \vdots  & \ddots & \vdots  \\
+	  c_{m,1} & c_{m,2} & \cdots & c_{m,n}
+	 \end{pmatrix}\\\\
+b & = ~\begin{pmatrix}
+	  a_1 & a_2 & \cdots & a_m & b_1 & b_2 & \cdots & b_n
+	 \end{pmatrix}\\\\
+A & = ~\begin{pmatrix}
+	  a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+	  a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+	  \vdots  & \vdots  & \ddots & \vdots  \\
+	  a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+	 \end{pmatrix}
+\end{array}
+$$
+where $ a_{ij}=e_i+e_{m+j} $, $ e_{i} $ is a column vector with
+$ m+n $ elements, and i-th element is 1, otherwise 0. Then we
+have:
+$$
+min z=Cx
+$$
+$$
+s.t. \left\{\begin{array}{r}
+  Ax=b\\
+  x\geq 0
+\end{array}\right.
+$$
+when $ \sum_{j=1}^{n}x_{ij}=a_i $, we can ensure the
+availability of drugs in different place.

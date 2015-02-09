@@ -52,10 +52,13 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \RequirePackage{bera}%for \fontfamily{fvs}
 \RequirePackage{ifthen}
 \RequirePackage{geometry}
+\geometry{a4paper, hmargin = 1.8in}
 
 %%% Create Index Tree and Links
 \RequirePackage{hyperref}
 \hypersetup{hidelinks}
+
+\RequirePackage{listings}
 
 %%% Define a command to take the letter of the question answered.
 \newcommand{\@question}[1]{}
@@ -68,6 +71,7 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \global\let\@contest\relax
 
 \newcommand{\officeuseline}{\rule{3.1cm}{0.5pt}}
+\newcommand{\nline}{\hfill\\}
 
 %%% Define a command for the ``team control number'', which is the
 %%% only allowable identifier on the paper.
@@ -129,7 +133,7 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 
 \newenvironment{summary}{%
   \pagenumbering{Alph}
-  \newgeometry{a4paper, hmargin = 0.88in}
+  \newgeometry{hmargin = 0.88in, vmargin = 1in}
   \makesheet
   \centerline{\large\bfseries Summary}
 }{\newpage%
@@ -137,7 +141,7 @@ Class] \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \pagenumbering{arabic}}%
 
 \def\makesheet{%
-  \null%
+  %\null%
   %\vskip 1em%
   \begingroup\renewcommand{\arraystretch}{1.2}\fontfamily{fvs}\fontseries{m}\selectfont%
   \thispagestyle{empty}%
@@ -183,6 +187,7 @@ the name of your school, advisor, or team members on this page.
 \vskip 1.5em%
 %\noindent\usebox\@abstract%
 \endgroup}
+
 
 \AtEndDocument{%
 \typeout{}
